@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import { Map, Marker, Popup, TileLayer, ZoomControl } from "react-leaflet";
 import axios from "axios";
-// import { Icon } from "leaflet";
+import { Icon } from "leaflet";
+import pointer from "../pointer.png";
 import InfoComercio from "./InfoComercio";
 import "../styles/normalize.css";
 import "../styles/App.css";
-
-/* 
-const icon = new Icon({
-  iconUrl: "pointer.png",
-  iconSize: [32, 32],
-});
- */
+import PropTypes from "prop-types";
 
 const Mapa = ({ busqueda }) => {
   const [comercios, guardarComercios] = useState([]);
   const [comercioSeleccionado, guardarComercioSeleccionado] = useState(null);
 
-  // LLamado a la API
   useEffect(() => {
     const obtenerDatos = async () => {
       const url = "https://tarjetafamilia.catamarca.gob.ar/api/v1/commerce/";
@@ -28,25 +22,36 @@ const Mapa = ({ busqueda }) => {
     obtenerDatos();
   }, []);
 
-  // Filtrado de Resultados
+  const busquedaComercios = comercios.filter(
+    (comercio) =>
+      comercio.attributes.name.indexOf(busqueda.toUpperCase()) !== -1 ||
+      comercio.attributes.address.indexOf(busqueda.toUpperCase()) !== -1 ||
+      comercio.attributes.tags[0].indexOf(busqueda) !== -1
+  );
 
-  // Inicializa el Mapa
   const coordenadasCatamarca = {
-    lat: -28.4739,
-    long: -65.7726,
+    lat: -28.475,
+    long: -65.79,
     zoom: 15,
   };
   const { lat, long, zoom } = coordenadasCatamarca;
 
+  const icon = new Icon({
+    iconUrl: pointer,
+    iconSize: [32, 32],
+  });
+
   return (
-    <Map center={[lat, long]} zoom={zoom}>
+    <Map center={[lat, long]} zoom={zoom} zoomControl={false}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
-      {comercios.map((comercio) => (
+      <ZoomControl position="topright" />
+      {busquedaComercios.map((comercio) => (
         <Marker
           key={comercio.id}
+          icon={icon}
           position={[
             comercio.attributes.point.coordinates[1],
             comercio.attributes.point.coordinates[0],
@@ -71,6 +76,10 @@ const Mapa = ({ busqueda }) => {
       )}
     </Map>
   );
+};
+
+Mapa.propTypes = {
+  busqueda: PropTypes.string.isRequired,
 };
 
 export default Mapa;

@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/normalize.css";
 import "../styles/App.css";
+import PropTypes from "prop-types";
 
 const InfoComercio = ({ comercioSeleccionado }) => {
   const { address, name, tags } = comercioSeleccionado.attributes;
@@ -11,6 +12,10 @@ const InfoComercio = ({ comercioSeleccionado }) => {
       <span>{tags[0]}</span>
     </div>
   );
+};
+
+InfoComercio.propTypes = {
+  comercioSeleccionado: PropTypes.object.isRequired,
 };
 
 export default InfoComercio;

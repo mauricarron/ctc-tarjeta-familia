@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/normalize.css";
 import "../styles/App.css";
+import PropTypes from "prop-types";
 
 const Formulario = ({ guardarBusqueda }) => {
   return (
@@ -18,6 +19,10 @@ const Formulario = ({ guardarBusqueda }) => {
       </form>
     </header>
   );
+};
+
+Formulario.propTypes = {
+  guardarBusqueda: PropTypes.func.isRequired,
 };
 
 export default Formulario;

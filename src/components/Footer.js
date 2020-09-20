@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/styles.css";
+import "../styles/App.css";
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <a
           href="https://github.com/mdCarron"
           target="_blank"
-          rel="noopener norefferer"
+          rel="noopener noreferrer"
         >
           mdCarron
         </a>{" "}
