@@ -1,12 +1,15 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Fragment, useState } from "react";
+import Formulario from "./components/Formulario";
+import Mapa from "./components/Mapa";
 
 function App() {
+  const [busqueda, guardarBusqueda] = useState("");
+
   return (
-    <div>
-      <h1>Buscador de Comercios | Tarjeta Familia</h1>
-    </div>
+    <Fragment>
+      <Mapa busqueda={busqueda} />
+      <Formulario guardarBusqueda={guardarBusqueda} />
+    </Fragment>
   );
 }
 
