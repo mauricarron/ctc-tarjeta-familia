@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Map, Marker, Popup, TileLayer, ZoomControl } from "react-leaflet";
-import axios from "axios";
 import { Icon } from "leaflet";
-import pointer from "../pointer.png";
+import axios from "axios";
 import InfoComercio from "./InfoComercio";
+import pointer from "../pointer-shop.svg";
 import "../styles/normalize.css";
-import "../styles/App.css";
+import "../styles/styles.css";
 import PropTypes from "prop-types";
 
 const Mapa = ({ busqueda }) => {
@@ -38,7 +38,7 @@ const Mapa = ({ busqueda }) => {
 
   const icon = new Icon({
     iconUrl: pointer,
-    iconSize: [32, 32],
+    iconSize: [48, 48],
   });
 
   return (

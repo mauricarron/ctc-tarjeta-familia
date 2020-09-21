@@ -1,17 +1,21 @@
 import React from "react";
 import "../styles/normalize.css";
-import "../styles/App.css";
+import "../styles/styles.css";
 import PropTypes from "prop-types";
 
 const Formulario = ({ guardarBusqueda }) => {
   return (
     <header className="buscador">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <input
           type="text"
           name="buscador"
           id="buscador"
-          placeholder="Ingrese el nombre de un comercio"
+          placeholder="Comercio, Categoria, Dirección..."
           onChange={(e) => {
             guardarBusqueda(e.target.value);
           }}

@@ -1,15 +1,15 @@
 import React from "react";
 import "../styles/normalize.css";
-import "../styles/App.css";
+import "../styles/styles.css";
 import PropTypes from "prop-types";
 
 const InfoComercio = ({ comercioSeleccionado }) => {
   const { address, name, tags } = comercioSeleccionado.attributes;
   return (
-    <div>
-      <h2>{name}</h2>
-      <p>{address.toLowerCase()}</p>
-      <span>{tags[0]}</span>
+    <div className="info-popup">
+      <h2 className="local-nombre">{name.toLowerCase()}</h2>
+      <p className="local-direccion">{address.toLowerCase()}</p>
+      <span className="badge">{tags[0]}</span>
     </div>
   );
 };
