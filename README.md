@@ -1,8 +1,8 @@
-# [Buscador de Recetas de Bebidas](https://mdcarron-ctc-tarjeta-familia.netlify.app/)
+# [Buscador de Comercios adheridos a Tarjeta Familia](https://mdcarron-ctc-tarjeta-familia.netlify.app/)
 
 ## Deploy 🔻
 
-[Buscador de Recetas de Bebidas](https://mdcarron-ctc-tarjeta-familia.netlify.app/)
+[Buscador de Comercios adheridos a Tarjeta Familia](https://mdcarron-ctc-tarjeta-familia.netlify.app/)
 
 ## ⭐ Acerca del Proyecto
 
